@@ -1,10 +1,12 @@
-# PokemonApp
+# Rick And Morty App
 
 Stack:
-SwiftUI,
-Combine,
-Async/await,
-URLSession.
+MVVM,
+Alamofire,
+GCD,
+URLSession,
+SnapKit.
+
 
 
 
