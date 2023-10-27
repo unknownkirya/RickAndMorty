@@ -61,5 +61,4 @@ final class MainCollectionViewCell: UICollectionViewCell {
             make.bottom.equalTo(self.snp.bottom).offset(-54)
         }
     }
-    
 }
