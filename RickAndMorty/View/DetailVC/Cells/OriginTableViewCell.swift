@@ -32,6 +32,7 @@ class OriginTableViewCell: UITableViewCell {
     private func setupUI() {
         self.backgroundColor = .grayForCell
         self.layer.cornerRadius = 10
+        self.isUserInteractionEnabled = false
         
         setupLabels()
         

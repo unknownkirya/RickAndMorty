@@ -6,3 +6,17 @@
 //
 
 import Foundation
+import UIKit
+
+final class OriginCellViewModel: OriginCellViewModelProtocol {
+    
+    private var characters: Character.Result
+    
+    var locationName: String {
+        return characters.origin.name
+    }
+    
+    init(characters: Character.Result) {
+        self.characters = characters
+    }
+}

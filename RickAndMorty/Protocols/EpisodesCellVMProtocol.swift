@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+protocol EpisodesCellViewModelProtocol {
+    var title: String { get }
+    var episodeNumber: String? { get }
+    var seasonNumber: String? { get }
+    var date: String { get }
+    
+    //func fetchEpisode(indexPath: IndexPath, completion: @escaping() -> ())
+}

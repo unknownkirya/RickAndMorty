@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import UIKit
+
+protocol OriginCellViewModelProtocol {
+    var locationName: String { get }
+}

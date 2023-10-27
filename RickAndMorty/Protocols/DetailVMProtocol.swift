@@ -12,8 +12,12 @@ protocol DetailViewModelProtocol {
     var name: String { get }
     var imageUrl: UIImage { get }
     var status: String { get }
-    var episodes: [String] { get }
+    //var episodes: [String] { get }
     
-    func numberOfSections() -> Int 
-    func cellViewModel() -> InfoCellViewModelProtocol
+    func fetchEpisode(completion: @escaping () -> ())
+    func numberOfSections() -> Int
+    func numberOfRowsInSection() -> Int
+    func cellInfoViewModel() -> InfoCellViewModelProtocol
+    func cellOriginViewModel() -> OriginCellViewModelProtocol
+    func cellEpisodeViewModel(indexPath: IndexPath) -> EpisodesCellViewModelProtocol 
 }

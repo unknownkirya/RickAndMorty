@@ -6,3 +6,9 @@
 //
 
 import Foundation
+import UIKit
+
+protocol CollectionViewCellVMProtocol: AnyObject {
+    var name: String { get }
+    var imageUrl: UIImage { get }
+}

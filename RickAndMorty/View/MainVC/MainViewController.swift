@@ -59,6 +59,7 @@ final class MainViewController: UIViewController {
         collectionView.backgroundColor = .blackBG
         collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: "MainCollectionViewCell")
         collectionView.dataSource = self
+        collectionView.delegate = self
         view.addSubview(collectionView)
     }
     
@@ -81,7 +82,7 @@ final class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: UICollectionViewDataSource {
+extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return  viewModel?.numberOfItems() ?? 0
     }
@@ -94,6 +95,14 @@ extension MainViewController: UICollectionViewDataSource {
         collectionCell.viewModel = cellViewModel
         
         return collectionCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as? MainCollectionViewCell, let viewModel = viewModel else { return }
+        viewModel.selectedItem(atIndexPath: indexPath)
+        let detailVC = DetailViewController()
+        detailVC.viewModel = viewModel.viewModelForSelectedRow()
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
